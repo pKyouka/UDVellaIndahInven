@@ -40,8 +40,8 @@ class gudangController extends Controller
 
     public function edit($kode)
     {
-        $showbarang = gudang::find($kode);
-        return view('tablesedit', compact('showbarang'));
+        $editbarang = gudang::where('kode', $kode)->firstOrFail();;
+        return view('edit', compact('editbarang'));
     }
 
     public function update(Request $request, $kode)
@@ -54,7 +54,7 @@ class gudangController extends Controller
                 'harga_beli' => 'required',
                 'harga_jual' => 'required',
             ]);
-            gudang::whereId($kode)->update($validateData);
+            gudang::where('kode', $kode)->update($validateData);
             return redirect('/tables');
         }
         catch(\Exception $e){

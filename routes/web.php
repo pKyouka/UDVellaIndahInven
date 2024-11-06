@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tablescreate', [gudangController::class, 'create'])->name('tablescreate');
     Route::post('/tablescreate', [gudangController::class, 'store']);
     Route::get('/tablesedit/{kode}', [gudangController::class, 'edit'])->name('tablesedit');
-    Route::post('/tablesedit/{kode}', [gudangController::class, 'update']);
+	Route::post('/tablesedit/{kode}', [gudangController::class, 'update'])->name('tablesupdate');
     Route::get('/tablesdelete/{kode}', [gudangController::class, 'destroy'])->name('tablesdelete');
 
 
